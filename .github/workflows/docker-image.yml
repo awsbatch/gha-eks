@@ -16,7 +16,8 @@ jobs:
        with: 
          username: "${{ secrets.DOCKER_USERNAME }}"
          password: "${{ secrets.DOCKER_PASSWORD }}"
-
+     - name: Push image to docker hub
+       run: "docker push ravendrarana/pyapp:${GITHUB_SHA::7}"
      - name: Install yq
        run: |
          sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
