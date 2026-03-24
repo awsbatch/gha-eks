@@ -16,3 +16,17 @@ jobs:
        with: 
          username: "${{ secrets.DOCKER_USERNAME }}"
          password: "${{ secrets.DOCKER_PASSWORD }}"
+
+     - name: Install yq
+       run: |
+         sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
+         sudo chmod +x /usr/local/bin/yq
+       
+     - name: Update deployment.yml with latest docker tag
+       run: |
+          # Short commit hash
+          SHORT_SHA=${GITHUB_SHA::7}
+          # Update image tag in deployment.yaml
+          yq -i '.spec.template.spec.containers[0].image = "ravendrarana/gha-pyapp:'"$SHORT_SHA"'"' ./k8s/pyapp-deployment.yml
+         
+      
