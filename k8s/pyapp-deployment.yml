@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: pyapp
-          image: ravendrarana/nginx:latest
+          image: ravendrarana/gha-pyapp:v2
           ports:
             - containerPort: 8000
