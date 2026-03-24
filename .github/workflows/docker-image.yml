@@ -34,6 +34,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions@noreply"
             git add k8s/pyapp-deployment.yml
-            git commit -m 'docker tag updated by GHA' || echo "Already commited changes"
+            git commit -m 'docker tag updated by GHA' || echo "Already commited changes done"
             git push origin main          
       
