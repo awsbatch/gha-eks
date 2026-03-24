@@ -20,7 +20,7 @@ jobs:
          password: "${{ secrets.DOCKER_PASSWORD }}"
 
      - name: Push image to docker hub
-       run: "docker push ravendrarana/pyapp:${GITHUB_SHA::7}"
+       run: "docker push ravendrarana/gha-pyapp:${GITHUB_SHA::7}"
 
      - name: Install yq
        run: |
